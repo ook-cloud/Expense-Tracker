@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ledger — Expense Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <div class="app-screen">
+      <div class="app-topline">
+        <div class="brand">Данс бүртгэл</div>
+        <div class="month" id="month-label"></div>
+      </div>
+
+      <!-- Balance card -->
+      <div class="balance-card">
+        <div class="balance-label">Одоогийн үлдэгдэл</div>
+        <div class="balance-amount" id="balance-amount">0.00₮</div>
+        <div class="balance-sub">
+          <div class="balance-sub-item">
+            Орлого <b id="total-income">0.00₮</b>
+          </div>
+          <div class="balance-sub-item">
+            Зарлага <b class="neg" id="total-expense">0.00₮</b>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form card -->
+      <div class="form-card">
+        <h3>Гүйлгээ нэмэх</h3>
+        <form id="tx-form">
+          <div class="type-toggle" id="type-toggle">
+            <button
+              type="button"
+              class="type-pill active-income"
+              data-type="income"
+            >
+              Орлого
+            </button>
+            <button
+              type="button"
+              class="type-pill inactive"
+              data-type="expense"
+            >
+              Зарлага
+            </button>
+          </div>
+          <input type="hidden" id="tx-type" value="income" />
+
+          <div class="form-row">
+            <div class="field">
+              <label for="tx-amount">Мөнгөн дүн</label>
+              <input
+                class="control"
+                type="number"
+                id="tx-amount"
+                placeholder="0.00₮"
+                step="0.01"
+                min="0.01"
+                required
+              />
+            </div>
+            <div class="field">
+              <label for="tx-category">Ангилал</label>
+              <select class="control" id="tx-category" required>
+                <option value="" disabled selected>Ангилал сонгох</option>
+                <option>Орлого</option>
+                <option>Хоол хүнс</option>
+                <option>Орон сууц</option>
+                <option>Тээвэр</option>
+                <option>Хэрэглээний зардал</option>
+                <option>Үзвэр үйлчилгээ</option>
+                <option>Эрүүл мэнд</option>
+                <option>Бусад</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="tx-name">Тайлбар (заавал биш)</label>
+            <input
+              class="control"
+              type="text"
+              id="tx-name"
+              placeholder="Жишээ нь: Дэлгүүрээс хүнс авсан"
+            />
+          </div>
+
+          <button type="submit" class="submit-btn">Гүйлгээ нэмэх</button>
+        </form>
+      </div>
+
+      <!-- List card -->
+      <div class="list-card">
+        <h3>Сүүлд хийгдсэн гүйлгээ</h3>
+
+        <div id="empty-state" class="mini-empty" hidden>
+          <div class="icon-dot">＋</div>
+          <div class="t1">Одоогоор ямар нэгэн гүйлгээ байхгүй байна</div>
+          <div class="t2">
+            Дээд талын хэсгээс анхны орлого эсвэл зарлагаа нэмнэ үү.
+          </div>
+        </div>
+
+        <div id="tx-list"></div>
+
+        <div class="category-strip" id="category-strip"></div>
+      </div>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>
