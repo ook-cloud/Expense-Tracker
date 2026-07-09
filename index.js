@@ -3,6 +3,7 @@ let transactions = [];
 let selectedType = "income";
 
 // ---------- DOM references ----------
+
 const form = document.getElementById("tx-form");
 const amountInput = document.getElementById("tx-amount");
 const categoryInput = document.getElementById("tx-category");
@@ -21,6 +22,7 @@ const monthLabelEl = document.getElementById("month-label");
 const STORAGE_KEY = "ledger-transactions";
 
 // ---------- Persistence ----------
+
 function loadTransactions() {
   const stored = localStorage.getItem(STORAGE_KEY);
   if (stored) {
@@ -37,6 +39,7 @@ function saveTransactions() {
 }
 
 // ---------- Formatting helpers ----------
+
 function formatCurrency(amount) {
   return (
     Math.abs(amount).toLocaleString("en-US", {
@@ -53,6 +56,7 @@ function setMonthLabel() {
 }
 
 // ---------- Type toggle (income / expense) ----------
+
 typeToggle.addEventListener("click", (event) => {
   const pill = event.target.closest(".type-pill");
   if (!pill) return;
@@ -73,6 +77,7 @@ typeToggle.addEventListener("click", (event) => {
 });
 
 // ---------- Form submit ----------
+
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 
@@ -107,6 +112,7 @@ form.addEventListener("submit", (event) => {
 });
 
 // ---------- Delete transaction ----------
+
 function deleteTransaction(id) {
   transactions = transactions.filter((tx) => tx.id !== id);
   saveTransactions();
@@ -114,6 +120,7 @@ function deleteTransaction(id) {
 }
 
 // ---------- Calculations ----------
+
 function calculateBalance() {
   return transactions.reduce((total, tx) => {
     return tx.type === "income" ? total + tx.amount : total - tx.amount;
@@ -144,6 +151,7 @@ function calculateCategoryTotals() {
 }
 
 // ---------- Rendering ----------
+
 function renderBalance() {
   const balance = calculateBalance();
   balanceAmountEl.textContent =
@@ -191,6 +199,7 @@ function renderTransactionList() {
   });
 
   // Wire up delete buttons
+
   txListEl.querySelectorAll(".tx-delete").forEach((btn) => {
     btn.addEventListener("click", () => {
       deleteTransaction(Number(btn.dataset.id));
@@ -236,6 +245,7 @@ function render() {
 }
 
 // ---------- Init ----------
+
 loadTransactions();
 setMonthLabel();
 render();
