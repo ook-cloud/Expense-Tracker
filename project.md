@@ -8,11 +8,11 @@ A personal finance tool where you log income and expense entries with an amount 
 
 ## The 20-minute core (MVP)
 
-- A form to add a transaction: amount, category, type (income/expense)
-- Submitting the form adds it to a running list of transactions and updates the display
-- Show a large running balance (income minus expenses)
-- Show a per-category breakdown (e.g. total spent on "Food", "Rent", etc.)
-- Transactions persist after a page refresh
+    - A form to add a transaction: amount, category, type (income/expense)
+    - Submitting the form adds it to a running list of transactions and updates the display
+    - Show a large running balance (income minus expenses)
+    - Show a per-category breakdown (e.g. total spent on "Food", "Rent", etc.)
+    - Transactions persist after a page refresh
 
 ## How it works (concept — no code)
 
