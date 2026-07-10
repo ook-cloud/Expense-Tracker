@@ -17,10 +17,14 @@
 
 body {
   margin: 0;
-  background: #f2f0f5;
   font-family: "Manrope", sans-serif;
   color: var(--ink);
   padding: 24px 16px;
+    background-image: url(/11121.jpg);
+    background-size: cover; /* Зургийг дэлгэцэнд дүүргэх */
+    background-position: center;
+    background-attachment: fixed; /* Скролл хийхэд фон хөдлөхгүй тогтвортой байлгах */
+
 }
 
 .app-screen {
