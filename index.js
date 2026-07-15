@@ -18,28 +18,28 @@ const totalExpenseEl = document.getElementById("total-expense");
 const txListEl = document.getElementById("tx-list");
 const emptyStateEl = document.getElementById("empty-state");
 const categoryStripEl = document.getElementById("category-strip");
+
 const monthLabelEl = document.getElementById("month-label");
+const STORAGE_KEY = "ledger-transactions";
 
-// const STORAGE_KEY = "ledger-transactions";
+// ---------- Өгөгдлийн хадгалалт ----------
 
-// // ---------- Persistence ----------
+function loadTransactions() {
+  const stored = localStorage.getItem(STORAGE_KEY);
+  if (stored) {
+    try {
+      transactions = JSON.parse(stored);
+    } catch (e) {
+      transactions = [];
+    }
+  }
+}
 
-// function loadTransactions() {
-//   const stored = localStorage.getItem(STORAGE_KEY);
-//   if (stored) {
-//     try {
-//       transactions = JSON.parse(stored);
-//     } catch (e) {
-//       transactions = [];
-//     }
-//   }
-// }
+function saveTransactions() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(transactions));
+}
 
-// function saveTransactions() {
-//   localStorage.setItem(STORAGE_KEY, JSON.stringify(transactions));
-// }
-
-// // ---------- Formatting helpers ----------
+// // ---------- Харагдах байдлыг цэгцлэх ----------
 
 // function formatCurrency(amount) {
 //   return (
