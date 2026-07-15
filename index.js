@@ -1,23 +1,23 @@
-// ---------- State ----------
+// ---------- Ерөнхий төлөв ----------
 let transactions = [];
 let selectedType = "income";
 
 // ---------- DOM references ----------
 
-// const form = document.getElementById("tx-form");
-// const amountInput = document.getElementById("tx-amount");
-// const categoryInput = document.getElementById("tx-category");
-// const nameInput = document.getElementById("tx-name");
-// const typeToggle = document.getElementById("type-toggle");
-// const typeHidden = document.getElementById("tx-type");
+const form = document.getElementById("tx-form");
+const amountInput = document.getElementById("tx-amount");
+const categoryInput = document.getElementById("tx-category");
+const nameInput = document.getElementById("tx-name");
+const typeToggle = document.getElementById("type-toggle");
+const typeHidden = document.getElementById("tx-type");
 
-// const balanceAmountEl = document.getElementById("balance-amount");
-// const totalIncomeEl = document.getElementById("total-income");
-// const totalExpenseEl = document.getElementById("total-expense");
-// const txListEl = document.getElementById("tx-list");
-// const emptyStateEl = document.getElementById("empty-state");
-// const categoryStripEl = document.getElementById("category-strip");
-// const monthLabelEl = document.getElementById("month-label");
+const balanceAmountEl = document.getElementById("balance-amount");
+const totalIncomeEl = document.getElementById("total-income");
+const totalExpenseEl = document.getElementById("total-expense");
+const txListEl = document.getElementById("tx-list");
+const emptyStateEl = document.getElementById("empty-state");
+const categoryStripEl = document.getElementById("category-strip");
+const monthLabelEl = document.getElementById("month-label");
 
 // const STORAGE_KEY = "ledger-transactions";
 
