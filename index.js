@@ -56,7 +56,7 @@ function setMonthLabel() {
   monthLabelEl.textContent = now.toLocaleDateString("mn-MN", options);
 }
 
-// // ---------- Type toggle (income / expense) ----------
+// ---------- Type toggle (income / expense) ----------
 
 // typeToggle.addEventListener("click", (event) => {
 //   const pill = event.target.closest(".type-pill");
