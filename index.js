@@ -41,14 +41,14 @@ function saveTransactions() {
 
 // // ---------- Харагдах байдлыг цэгцлэх ----------
 
-// function formatCurrency(amount) {
-//   return (
-//     Math.abs(amount).toLocaleString("en-US", {
-//       minimumFractionDigits: 2,
-//       maximumFractionDigits: 2,
-//     }) + " ₮"
-//   );
-// }
+function formatCurrency(amount) {
+  return (
+    Math.abs(amount).toLocaleString("en-US", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    }) + " ₮"
+  );
+}
 
 // function setMonthLabel() {
 //   const now = new Date();
