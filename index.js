@@ -39,7 +39,7 @@ function saveTransactions() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(transactions));
 }
 
-// // ---------- Харагдах байдлыг цэгцлэх ----------
+// ---------- Харагдах байдлыг цэгцлэх ----------
 
 function formatCurrency(amount) {
   return (
@@ -53,64 +53,64 @@ function formatCurrency(amount) {
 function setMonthLabel() {
   const now = new Date();
   const options = { month: "long", year: "numeric" };
-  monthLabelEl.textContent = now.toLocaleDateString("en-US", options);
+  monthLabelEl.textContent = now.toLocaleDateString("mn-MN", options);
 }
 
-// ---------- Type toggle (income / expense) ----------
+// ---------- Орлого / Зарлага шилжүүлэгч ----------
 
-// typeToggle.addEventListener("click", (event) => {
-//   const pill = event.target.closest(".type-pill");
-//   if (!pill) return;
+typeToggle.addEventListener("click", (event) => {
+  const pill = event.target.closest(".type-pill");
+  if (!pill) return;
 
-//   selectedType = pill.dataset.type;
-//   typeHidden.value = selectedType;
+  selectedType = pill.dataset.type;
+  typeHidden.value = selectedType;
 
-//   [...typeToggle.children].forEach((child) => {
-//     child.classList.remove("active-income", "active-expense", "inactive");
-//     if (child.dataset.type === selectedType) {
-//       child.classList.add(
-//         selectedType === "income" ? "active-income" : "active-expense",
-//       );
-//     } else {
-//       child.classList.add("inactive");
-//     }
-//   });
-// });
+  [...typeToggle.children].forEach((child) => {
+    child.classList.remove("active-income", "active-expense", "inactive");
+    if (child.dataset.type === selectedType) {
+      child.classList.add(
+        selectedType === "income" ? "active-income" : "active-expense",
+      );
+    } else {
+      child.classList.add("inactive");
+    }
+  });
+});
 
-// // ---------- Form submit ----------
+// ---------- Маягт илгээх ----------
 
-// form.addEventListener("submit", (event) => {
-//   event.preventDefault();
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
 
-//   const amount = parseFloat(amountInput.value);
-//   const category = categoryInput.value;
-//   const name = nameInput.value.trim() || category;
+  const amount = parseFloat(amountInput.value);
+  const category = categoryInput.value;
+  const name = nameInput.value.trim() || category;
 
-//   if (!amount || amount <= 0 || !category) return;
+  if (!amount || amount <= 0 || !category) return;
 
-//   const transaction = {
-//     id: Date.now(),
-//     type: selectedType,
-//     amount: amount,
-//     category: category,
-//     name: name,
-//     date: new Date().toISOString(),
-//   };
+  const transaction = {
+    id: Date.now(),
+    type: selectedType,
+    amount: amount,
+    category: category,
+    name: name,
+    date: new Date().toISOString(),
+  };
 
-//   transactions.push(transaction);
-//   saveTransactions();
-//   render();
+  transactions.push(transaction);
+  saveTransactions();
+  render();
 
-//   form.reset();
-//   selectedType = "income";
-//   typeHidden.value = "income";
-//   [...typeToggle.children].forEach((child) => {
-//     child.classList.remove("active-income", "active-expense", "inactive");
-//     child.classList.add(
-//       child.dataset.type === "income" ? "active-income" : "inactive",
-//     );
-//   });
-// });
+  form.reset();
+  selectedType = "income";
+  typeHidden.value = "income";
+  [...typeToggle.children].forEach((child) => {
+    child.classList.remove("active-income", "active-expense", "inactive");
+    child.classList.add(
+      child.dataset.type === "income" ? "active-income" : "inactive",
+    );
+  });
+});
 
 // // ---------- Delete transaction ----------
 
