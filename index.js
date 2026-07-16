@@ -112,15 +112,15 @@ form.addEventListener("submit", (event) => {
   });
 });
 
-// // ---------- Delete transaction ----------
+// ---------- Гүйлгээ устгах ----------
 
-// function deleteTransaction(id) {
-//   transactions = transactions.filter((tx) => tx.id !== id);
-//   saveTransactions();
-//   render();
-// }
+function deleteTransaction(id) {
+  transactions = transactions.filter((tx) => tx.id !== id);
+  saveTransactions();
+  render();
+}
 
-// // ---------- Calculations ----------
+// ---------- Calculations ----------
 
 // function calculateBalance() {
 //   return transactions.reduce((total, tx) => {
