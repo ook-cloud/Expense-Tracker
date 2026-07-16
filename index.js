@@ -120,38 +120,38 @@ function deleteTransaction(id) {
   render();
 }
 
-// ---------- Calculations ----------
+// ---------- Тооцоолох тархи ----------
 
-// function calculateBalance() {
-//   return transactions.reduce((total, tx) => {
-//     return tx.type === "income" ? total + tx.amount : total - tx.amount;
-//   }, 0);
-// }
+function calculateBalance() {
+  return transactions.reduce((total, tx) => {
+    return tx.type === "income" ? total + tx.amount : total - tx.amount;
+  }, 0);
+}
 
-// function calculateTotals() {
-//   return transactions.reduce(
-//     (totals, tx) => {
-//       if (tx.type === "income") {
-//         totals.income += tx.amount;
-//       } else {
-//         totals.expense += tx.amount;
-//       }
-//       return totals;
-//     },
-//     { income: 0, expense: 0 },
-//   );
-// }
+function calculateTotals() {
+  return transactions.reduce(
+    (totals, tx) => {
+      if (tx.type === "income") {
+        totals.income += tx.amount;
+      } else {
+        totals.expense += tx.amount;
+      }
+      return totals;
+    },
+    { income: 0, expense: 0 },
+  );
+}
 
-// function calculateCategoryTotals() {
-//   const expenseTx = transactions.filter((tx) => tx.type === "expense");
-//   const categoryTotals = expenseTx.reduce((totals, tx) => {
-//     totals[tx.category] = (totals[tx.category] || 0) + tx.amount;
-//     return totals;
-//   }, {});
-//   return categoryTotals;
-// }
+function calculateCategoryTotals() {
+  const expenseTx = transactions.filter((tx) => tx.type === "expense");
+  const categoryTotals = expenseTx.reduce((totals, tx) => {
+    totals[tx.category] = (totals[tx.category] || 0) + tx.amount;
+    return totals;
+  }, {});
+  return categoryTotals;
+}
 
-// // ---------- Rendering ----------
+// ---------- Датаг дэлгэцэнд харуулах ----------
 
 // function renderBalance() {
 //   const balance = calculateBalance();
