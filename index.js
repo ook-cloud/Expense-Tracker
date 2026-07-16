@@ -46,14 +46,14 @@ function formatCurrency(amount) {
     Math.abs(amount).toLocaleString("en-US", {
       minimumFractionDigits: 2,
       maximumFractionDigits: 2,
-    }) + " ₮"
+    }) + "₮"
   );
 }
 
 function setMonthLabel() {
   const now = new Date();
   const options = { month: "long", year: "numeric" };
-  monthLabelEl.textContent = now.toLocaleDateString("mn-MN", options);
+  monthLabelEl.textContent = now.toLocaleDateString("en-US", options);
 }
 
 // ---------- Type toggle (income / expense) ----------
