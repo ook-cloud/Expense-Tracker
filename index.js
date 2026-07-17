@@ -233,21 +233,20 @@ function renderCategoryBreakdown() {
   });
 }
 
-// function escapeHtml(str) {
-//   const div = document.createElement("div");
-//   div.textContent = str;
-//   return div.innerHTML;
-// }
+function escapeHtml(str) {
+  const div = document.createElement("div");
+  div.textContent = str;
+  return div.innerHTML;
+}
 
-// function render() {
-//   renderBalance();
-//   renderTransactionList();
-//   renderCategoryBreakdown();
-// }
+function render() {
+  renderBalance();
+  renderTransactionList();
+  renderCategoryBreakdown();
+}
 
-// // ---------- Init ----------
+// ---------- Анхны төлөвийг идэвхжүүлэх ----------
 
-// loadTransactions();
-// setMonthLabel();
-// render();
-// // ehnii udur
+loadTransactions();
+setMonthLabel();
+render();
