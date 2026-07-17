@@ -153,85 +153,85 @@ function calculateCategoryTotals() {
 
 // ---------- Датаг дэлгэцэнд харуулах ----------
 
-// function renderBalance() {
-//   const balance = calculateBalance();
-//   balanceAmountEl.textContent =
-//     (balance < 0 ? "−" : "") + formatCurrency(balance);
+function renderBalance() {
+  const balance = calculateBalance();
+  balanceAmountEl.textContent =
+    (balance < 0 ? "−" : "") + formatCurrency(balance);
 
-//   const totals = calculateTotals();
-//   totalIncomeEl.textContent = formatCurrency(totals.income);
-//   totalExpenseEl.textContent = formatCurrency(totals.expense);
-// }
+  const totals = calculateTotals();
+  totalIncomeEl.textContent = formatCurrency(totals.income);
+  totalExpenseEl.textContent = formatCurrency(totals.expense);
+}
 
-// function renderTransactionList() {
-//   txListEl.innerHTML = "";
+function renderTransactionList() {
+  txListEl.innerHTML = "";
 
-//   if (transactions.length === 0) {
-//     emptyStateEl.hidden = false;
-//     return;
-//   }
-//   emptyStateEl.hidden = true;
+  if (transactions.length === 0) {
+    emptyStateEl.hidden = false;
+    return;
+  }
+  emptyStateEl.hidden = true;
 
-//   const sorted = [...transactions].sort((a, b) => b.id - a.id);
+  const sorted = [...transactions].sort((a, b) => b.id - a.id);
 
-//   sorted.forEach((tx) => {
-//     const row = document.createElement("div");
-//     row.className = "tx-row";
+  sorted.forEach((tx) => {
+    const row = document.createElement("div");
+    row.className = "tx-row";
 
-//     const sign = tx.type === "income" ? "+" : "−";
-//     const amountClass = tx.type === "income" ? "pos" : "neg";
-//     const dotClass = tx.type === "income" ? "" : "exp";
+    const sign = tx.type === "income" ? "+" : "−";
+    const amountClass = tx.type === "income" ? "pos" : "neg";
+    const dotClass = tx.type === "income" ? "" : "exp";
 
-//     row.innerHTML = `
-//       <div class="tx-left">
-//         <div class="tx-dot ${dotClass}"></div>
-//         <div>
-//           <div class="tx-name">${escapeHtml(tx.name)}</div>
-//           <div class="tx-cat">${escapeHtml(tx.category)}</div>
-//         </div>
-//       </div>
-//       <div class="tx-right">
-//         <div class="tx-amount ${amountClass}">${sign}${formatCurrency(tx.amount)}</div>
-//         <button class="tx-delete" data-id="${tx.id}" aria-label="Delete transaction">✕</button>
-//       </div>
-//     `;
+    row.innerHTML = `
+      <div class="tx-left">
+        <div class="tx-dot ${dotClass}"></div>
+        <div>
+          <div class="tx-name">${escapeHtml(tx.name)}</div>
+          <div class="tx-cat">${escapeHtml(tx.category)}</div>
+        </div>
+      </div>
+      <div class="tx-right">
+        <div class="tx-amount ${amountClass}">${sign}${formatCurrency(tx.amount)}</div>
+        <button class="tx-delete" data-id="${tx.id}" aria-label="Delete transaction">✕</button>
+      </div>
+    `;
 
-//     txListEl.appendChild(row);
-//   });
+    txListEl.appendChild(row);
+  });
 
-//   // Wire up delete buttons
+  // ---------- Устгах товчлууруудыг ажиллуулах ----------
 
-//   txListEl.querySelectorAll(".tx-delete").forEach((btn) => {
-//     btn.addEventListener("click", () => {
-//       deleteTransaction(Number(btn.dataset.id));
-//     });
-//   });
-// }
+  txListEl.querySelectorAll(".tx-delete").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      deleteTransaction(Number(btn.dataset.id));
+    });
+  });
+}
 
-// function renderCategoryBreakdown() {
-//   categoryStripEl.innerHTML = "";
+function renderCategoryBreakdown() {
+  categoryStripEl.innerHTML = "";
 
-//   const categoryTotals = calculateCategoryTotals();
-//   const categories = Object.keys(categoryTotals);
+  const categoryTotals = calculateCategoryTotals();
+  const categories = Object.keys(categoryTotals);
 
-//   if (categories.length === 0) return;
+  if (categories.length === 0) return;
 
-//   const maxTotal = Math.max(...Object.values(categoryTotals));
+  const maxTotal = Math.max(...Object.values(categoryTotals));
 
-//   categories.forEach((category) => {
-//     const total = categoryTotals[category];
-//     const percent = maxTotal > 0 ? Math.round((total / maxTotal) * 100) : 0;
+  categories.forEach((category) => {
+    const total = categoryTotals[category];
+    const percent = maxTotal > 0 ? Math.round((total / maxTotal) * 100) : 0;
 
-//     const chip = document.createElement("div");
-//     chip.className = "cat-chip";
-//     chip.innerHTML = `
-//       <div class="name">${escapeHtml(category)}</div>
-//       <div class="bar-track"><div class="bar-fill" style="width:${percent}%"></div></div>
-//       <div class="val">${formatCurrency(total)}</div>
-//     `;
-//     categoryStripEl.appendChild(chip);
-//   });
-// }
+    const chip = document.createElement("div");
+    chip.className = "cat-chip";
+    chip.innerHTML = `
+      <div class="name">${escapeHtml(category)}</div>
+      <div class="bar-track"><div class="bar-fill" style="width:${percent}%"></div></div>
+      <div class="val">${formatCurrency(total)}</div>
+    `;
+    categoryStripEl.appendChild(chip);
+  });
+}
 
 // function escapeHtml(str) {
 //   const div = document.createElement("div");
