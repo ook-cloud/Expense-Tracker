@@ -52,8 +52,10 @@ function formatCurrency(amount) {
 
 function setMonthLabel() {
   const now = new Date();
-  const options = { month: "long", year: "numeric" };
-  monthLabelEl.textContent = now.toLocaleDateString("mn-MN", options);
+  const year = now.getFullYear();
+  const month = now.getMonth() + 1;
+
+  monthLabelEl.textContent = `${year} оны ${month} сар`;
 }
 
 // ---------- Орлого / Зарлага шилжүүлэгч ----------
