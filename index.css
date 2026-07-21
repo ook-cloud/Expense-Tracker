@@ -20,11 +20,10 @@ body {
   font-family: "Manrope", sans-serif;
   color: var(--ink);
   padding: 24px 16px;
-    background-image: url(/11121.jpg);
-    background-size: cover; /* Зургийг дэлгэцэнд дүүргэх */
-    background-position: center;
-    background-attachment: fixed; /* Скролл хийхэд фон хөдлөхгүй тогтвортой байлгах */
-
+  background-image: url(/11121.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 .app-screen {
