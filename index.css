@@ -2,7 +2,7 @@
   --bg: #eef3f2;
   --surface: #ffffff;
   --surface-sunk: #f5f8f7;
-  --ink: #12282a;
+  --ink: hsl(185, 40%, 12%);
   --ink-muted: #5c7071;
   --border: #dce6e4;
   --brand: #0e7c6b;
