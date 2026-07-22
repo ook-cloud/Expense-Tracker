@@ -36,7 +36,12 @@ function loadTransactions() {
 }
 
 function test() {
-  localStorage.setItem("hello", "thuis is the value");
+  localStorage.setItem("hello", "this is the value");
+}
+test();
+
+function test() {
+  localStorage.setItem("hi", "th");
 }
 test();
 
