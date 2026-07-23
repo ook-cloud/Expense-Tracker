@@ -35,22 +35,6 @@ function loadTransactions() {
   }
 }
 
-function test() {
-  localStorage.setItem("hello", "this is the value");
-}
-test();
-
-function test() {
-  localStorage.setItem("hi", "th");
-}
-test();
-
-function getItem() {
-  const item = localStorage.getItem("hello");
-  console.log(item, "item");
-}
-console.log(getItem());
-
 function saveTransactions() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(transactions));
 }
