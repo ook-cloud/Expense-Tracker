@@ -184,22 +184,22 @@ function renderTransactionList() {
     const amountClass = tx.type === "income" ? "pos" : "neg";
     const dotClass = tx.type === "income" ? "" : "exp";
 
-    row.innerHTML = `
-      <div class="tx-left">
-        <div class="tx-dot ${dotClass}"></div>
-        <div>
-          <div class="tx-name">${escapeHtml(tx.name)}</div>
-          <div class="tx-cat">${escapeHtml(tx.category)}</div>
-        </div>
-      </div>
-      <div class="tx-right">
-        <div class="tx-amount ${amountClass}">${sign}${formatCurrency(tx.amount)}</div>
-        <button class="tx-delete" data-id="${tx.id}" aria-label="Delete transaction">✕</button>
-      </div>
-    `;
+  //   row.innerHTML = `
+  //     <div class="tx-left">
+  //       <div class="tx-dot ${dotClass}"></div>
+  //       <div>
+  //         <div class="tx-name">${escapeHtml(tx.name)}</div>
+  //         <div class="tx-cat">${escapeHtml(tx.category)}</div>
+  //       </div>
+  //     </div>
+  //     <div class="tx-right">
+  //       <div class="tx-amount ${amountClass}">${sign}${formatCurrency(tx.amount)}</div>
+  //       <button class="tx-delete" data-id="${tx.id}" aria-label="Delete transaction">✕</button>
+  //     </div>
+  //   `;
 
-    txListEl.appendChild(row);
-  });
+  //   txListEl.appendChild(row);
+  // });
 
   // ---------- Устгах товчлууруудыг ажиллуулах ----------
 
